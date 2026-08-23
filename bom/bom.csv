@@ -1,0 +1,26 @@
+Item,Description,Specification,Qty,Unit,Notes,Approx Source
+1,C-Beam Aluminium Extrusion,40x80mm - length as required,1,pc,Cut to Z-travel + 100mm overhead,OpenBuilds / Makerstore
+2,MGN9H Linear Rail,9mm rail - length as required,2,pc,Length = Z-travel + 160mm minimum,AliExpress / Hiwin
+3,MGN9H Carriage Block,H-type wide block,4,pc,2 per rail,AliExpress / Hiwin
+4,TR8x8 Acme Lead Screw,8mm dia 4-start 2mm pitch 8mm/rev lead,1,pc,Length = Z-travel + 60mm,RobotDigg / Amazon
+5,TR8x8 Brass Nut,Square 22x22x10mm or anti-backlash POM,1,pc,Anti-backlash recommended,AliExpress
+6,FK8 Fixed Bearing Block,8mm bore - lead screw top end,1,pc,Motor end,AliExpress
+7,FF8 Float Bearing Block,8mm bore - lead screw bottom end,1,pc,Idler end,AliExpress
+8,Gantry Plate,120x160x8mm 6061-T6 Aluminium,1,pc,See cad/gantry_plate.dxf,Local waterjet / SendCutSend
+9,Makita RT0702/700C Adapter Kit,65mm clamp mount for Makita RT0702/700C,2,pc,3DPrintronics mounting kit,3dprintronics.com
+10,NEMA17 Stepper Motor,42x42mm 1.8deg 40Ncm+,1,pc,Or NEMA23 for heavier loads,StepperOnline / Amazon
+11,Flexible Shaft Coupler,5mm to 8mm (motor to lead screw),1,pc,Oldham or jaw coupler preferred,AliExpress
+12,MGN9 Rail Mounting Screws,M3x8mm SHCS,20,pc,T-nut rail mounting to C-beam,Generic
+13,M3 T-Nut,Hammer or drop-in for 20-series slot,20,pc,For rail mounting to extrusion,OpenBuilds / AliExpress
+14,MGN9H Carriage Screws,M3x8mm SHCS,16,pc,4 per carriage x 4 carriages,Generic
+15,Lead Screw Nut Screws,M4x8mm SHCS,4,pc,Nut to gantry plate,Generic
+16,Router Adapter Screws,M5x10mm SHCS,8,pc,4 per adapter x 2 adapters,Generic
+17,FK8/FF8 Mounting Screws,M5x10mm SHCS,8,pc,4 per bearing block,Generic
+18,Motor Mount Screws,M3x8mm SHCS,4,pc,NEMA17 face mount,Generic
+19,Drag Chain,10x10mm or 10x15mm inner,1,pc,Length as required for cable management,AliExpress
+20,Drag Chain Bracket,M4 mount,2,pc,One each end,3D print or purchase
+21,Limit Switch,Micro switch with lever,1,pc,Z-axis home / endstop,Generic
+22,M3 Hex Nuts,Standard,10,pc,Spare fasteners,Generic
+23,M4 Hex Nuts,Standard,10,pc,Spare fasteners,Generic
+24,M5 Hex Nuts,Standard,10,pc,Spare fasteners,Generic
+25,Threadlocker,Loctite 243 medium strength,1,ml,For all M3/M4 fasteners,Hardware store
