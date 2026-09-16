@@ -1,0 +1,73 @@
+name: Render OpenSCAD Preview
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'cad/**.scad'
+      - '.github/workflows/render-openscad.yml'
+  workflow_dispatch:  # Allow manual trigger from Actions tab
+
+permissions:
+  contents: write  # Needed to commit rendered PNG back to repo
+
+jobs:
+  render:
+    name: Render gantry_assembly.scad → PNG
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout repo ──────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Install OpenSCAD (headless) ────────────────────────────
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y openscad xvfb
+
+      # ── 3. Render each .scad file to PNG ──────────────────────────
+      - name: Render OpenSCAD models
+        run: |
+          mkdir -p renders
+
+          for scad_file in cad/*.scad; do
+            base=$(basename "$scad_file" .scad)
+            echo "Rendering $scad_file → renders/${base}.png"
+
+            xvfb-run -a openscad \
+              --camera=150,50,100,45,0,45,600 \
+              --colorscheme="Tomorrow Night" \
+              --imgsize=1920,1080 \
+              --render \
+              -o "renders/${base}.png" \
+              "$scad_file" \
+            || echo "WARNING: render failed for $scad_file (non-fatal)"
+          done
+
+          ls -lh renders/
+
+      # ── 4. Commit rendered images back to repo ────────────────────
+      - name: Commit rendered previews
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add renders/
+          if git diff --cached --quiet; then
+            echo "No changes — skipping commit."
+          else
+            git commit -m "chore: auto-render OpenSCAD previews [skip ci]"
+            git push
+          fi
+
+      # ── 5. Upload renders as workflow artifact ────────────────────
+      - name: Upload PNG artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: openscad-renders
+          path: renders/*.png
+          retention-days: 30
