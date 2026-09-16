@@ -15,9 +15,9 @@ $EXTMIN
   9
 $EXTMAX
  10
-125.0
+130.0
  20
-165.0
+130.0
   0
 ENDSEC
   0
@@ -51,7 +51,7 @@ TABLE
   2
 LAYER
  70
-5
+9
   0
 LAYER
   2
@@ -60,6 +60,26 @@ OUTLINE
 0
  62
 7
+  6
+CONTINUOUS
+  0
+LAYER
+  2
+VWHEEL_FIXED
+ 70
+0
+ 62
+4
+  6
+CONTINUOUS
+  0
+LAYER
+  2
+VWHEEL_ECCENTRIC
+ 70
+0
+ 62
+2
   6
 CONTINUOUS
   0
@@ -103,6 +123,26 @@ LEADSCREW
   6
 CONTINUOUS
   0
+LAYER
+  2
+MGRID
+ 70
+0
+ 62
+8
+  6
+CONTINUOUS
+  0
+LAYER
+  2
+ANNOTATION
+ 70
+0
+ 62
+9
+  6
+CONTINUOUS
+  0
 ENDTAB
   0
 ENDSEC
@@ -114,474 +154,713 @@ ENTITIES
   0
 COMMENT
   1
-C-BEAM GANTRY PLATE 120x160mm
-Dimensions in mm
-All holes are clearance holes (not tapped)
-M3 clearance = 3.2mm dia (16 holes, layer M3_HOLES)
-M4 clearance = 4.3mm dia (4 holes, layer M4_HOLES)
-M5 clearance = 5.3mm dia (8 holes, layer M5_HOLES)
-Lead screw clearance = 9.0mm dia (1 hole, layer LEADSCREW)
-Plate: 120 x 160 x 8mm 6061-T6 Aluminium
+=============================================================
+C-BEAM GANTRY PLATE  Rev C  125 x 125 x 6 mm  6061-T6 Al
+Base plate: Bulkman3D PL0015 (C-Beam Gantry Plate XL)
+URL: https://bulkman3d.com/product/pl0015/
+Origin = bottom-left corner of plate. All dims in mm.
+=============================================================
+CONFIGURATION
+  C-Beam extrusion  : 40 x 80 mm (V-slot face = 80mm front)
+  V-wheels          : 6x Solid V-Wheel on C-beam front 80mm face
+  MGN9H linear rails: 2 rails mounted on LEFT and RIGHT side
+                      faces of C-beam (40mm faces)
+  MGN9H carriages   : 4 total (2 per rail), bolted to plate back
+  Lead screw        : TR8x8 Acme, nut centred at (62.5, 62.5)
+  Router mounts     : 2x Makita RT0702/700C 65mm clamp adapter
+=============================================================
+LAYER LEGEND
+  OUTLINE          (white)  Plate cut boundary 125 x 125 mm
+  VWHEEL_FIXED     (cyan)   Dia 5.0 mm  x3  Fixed V-wheel M5 holes
+  VWHEEL_ECCENTRIC (green)  Dia 7.8 mm  x3  Eccentric spacer V-wheel holes
+  M3_HOLES         (red)    Dia 3.2 mm  x16 MGN9H carriage M3 bolts
+  M4_HOLES         (yellow) Dia 4.3 mm  x4  TR8x8 nut block M4 bolts
+  M5_HOLES         (blue)   Dia 5.3 mm  x8  Makita adapter M5 bolts
+  LEADSCREW        (magenta) Dia 9.0 mm  x1  Lead-screw shaft clearance
+  MGRID            (grey)   Dia 5.0 mm  x20 M5 20mm utility grid holes
+=============================================================
+HOLE COORDINATE TABLE
+--- V-WHEEL FIXED holes (Dia 5.0 mm) ---
+  Top-left    : (20.0, 105.0)
+  Top-right   : (105.0, 105.0)
+  Bottom-left : (20.0,  20.0)
+--- V-WHEEL ECCENTRIC holes (Dia 7.8 mm) ---
+  Top-centre  : (62.5, 115.0)
+  Bottom-ctr  : (62.5,  10.0)
+  Mid-right   : (115.0, 62.5)
+--- MGN9H M3 HOLES (Dia 3.2 mm) ---
+  Rails mount on LEFT (X=-) and RIGHT (X=+) C-beam side faces.
+  Carriages bolt to BACK face of this plate.
+  Rail 1 (left side of C-beam) - carriage X-centre on plate = 25 mm
+    Carriage A top    (Y-ctr=95): (21,85)(29,85)(21,105)(29,105)
+    Carriage B bottom (Y-ctr=30): (21,20)(29,20)(21,40)(29,40)
+  Rail 2 (right side of C-beam) - carriage X-centre on plate = 100 mm
+    Carriage A top    (Y-ctr=95): (96,85)(104,85)(96,105)(104,105)
+    Carriage B bottom (Y-ctr=30): (96,20)(104,20)(96,40)(104,40)
+  Rail spacing H  : 75 mm c-c
+  Carriage spacing V : 65 mm c-c
+--- TR8x8 NUT BLOCK M4 HOLES (Dia 4.3 mm) ---
+  20 mm square pattern centred at plate centre (62.5, 62.5)
+  (52.5,52.5)(72.5,52.5)(52.5,72.5)(72.5,72.5)
+--- Makita ADAPTER M5 HOLES (Dia 5.3 mm) ---
+  Adapter 1 (upper, Y-ctr=95): (32.5,80)(92.5,80)(32.5,110)(92.5,110)
+  Adapter 2 (lower, Y-ctr=30): (32.5,15)(92.5,15)(32.5,45)(92.5,45)
+--- LEAD SCREW CLEARANCE (Dia 9.0 mm) ---
+  Centre: (62.5, 62.5)
+--- M5 UTILITY GRID (Dia 5.0 mm) 20mm spacing ---
+  Row Y=20:  (40,20)(60,20)(80,20)
+  Row Y=40:  (40,40)(60,40)(80,40)
+  Row Y=60:  (40,60)(80,60)   [centre omitted - leadscrew]
+  Row Y=80:  (40,80)(60,80)(80,80)
+  Row Y=100: (40,100)(60,100)(80,100)
+=============================================================
+
+  0
+LINE
+  8
+OUTLINE
+ 10
+0.0
+ 20
+0.0
+ 11
+125.0
+ 21
+0.0
+  0
+LINE
+  8
+OUTLINE
+ 10
+125.0
+ 20
+0.0
+ 11
+125.0
+ 21
+125.0
+  0
+LINE
+  8
+OUTLINE
+ 10
+125.0
+ 20
+125.0
+ 11
+0.0
+ 21
+125.0
+  0
+LINE
+  8
+OUTLINE
+ 10
+0.0
+ 20
+125.0
+ 11
+0.0
+ 21
+0.0
 
   0
 COMMENT
   1
-=== HOLE REFERENCE TABLE ===
-M3 HOLES (Dia 3.2mm) - MGN9H Carriage Mounts (16 total)
-Rail 1 Left (X=20mm):
-  Carriage A top:    (16, 30), (24, 30), (16, 50), (24, 50)
-  Carriage B bottom: (16, 110), (24, 110), (16, 130), (24, 130)
-Rail 2 Right (X=100mm):
-  Carriage A top:    (96, 30), (104, 30), (96, 50), (104, 50)
-  Carriage B bottom: (96, 110), (104, 110), (96, 130), (104, 130)
-
-M4 HOLES (Dia 4.3mm) - TR8x8 Lead Screw Nut (4 total)
-  (52, 72), (68, 72), (52, 88), (68, 88)
-
-M5 HOLES (Dia 5.3mm) - Makita RT0702 Adapter Mounts (8 total)
-Adapter 1 upper:  (30, 20), (90, 20), (30, 60), (90, 60)
-Adapter 2 lower:  (30, 100), (90, 100), (30, 140), (90, 140)
-
-LEAD SCREW HOLE (Dia 9.0mm) - 1 total
-  Center: (60, 80)
-
-
-  0
-LINE
-  8
-OUTLINE
- 10
-0.0
- 20
-0.0
- 11
-120.0
- 21
-0.0
-  0
-LINE
-  8
-OUTLINE
- 10
-120.0
- 20
-0.0
- 11
-120.0
- 21
-160.0
-  0
-LINE
-  8
-OUTLINE
- 10
-120.0
- 20
-160.0
- 11
-0.0
- 21
-160.0
-  0
-LINE
-  8
-OUTLINE
- 10
-0.0
- 20
-160.0
- 11
-0.0
- 21
-0.0
-
-  0
-COMMAND
-  1
-M3 HOLES - Rail 1 Left (X=20) Carriage A Top
+--- V-WHEEL FIXED (Dia 5.0mm radius 2.5) ---
 
   0
 CIRCLE
   8
-M3_HOLES
+VWHEEL_FIXED
  10
-16.0
+20.0
  20
-30.0
+105.0
  30
 0.0
  40
-1.6
+2.5
   0
 CIRCLE
   8
-M3_HOLES
+VWHEEL_FIXED
  10
-24.0
+105.0
  20
-30.0
+105.0
  30
 0.0
  40
-1.6
+2.5
   0
 CIRCLE
   8
-M3_HOLES
+VWHEEL_FIXED
  10
-16.0
- 20
-50.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-24.0
- 20
-50.0
- 30
-0.0
- 40
-1.6
-
-  0
-COMMAND
-  1
-M3 HOLES - Rail 1 Left (X=20) Carriage B Bottom
-
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-16.0
- 20
-110.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-24.0
- 20
-110.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-16.0
- 20
-130.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-24.0
- 20
-130.0
- 30
-0.0
- 40
-1.6
-
-  0
-COMMAND
-  1
-M3 HOLES - Rail 2 Right (X=100) Carriage A Top
-
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-96.0
- 20
-30.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-104.0
- 20
-30.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-96.0
- 20
-50.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-104.0
- 20
-50.0
- 30
-0.0
- 40
-1.6
-
-  0
-COMMAND
-  1
-M3 HOLES - Rail 2 Right (X=100) Carriage B Bottom
-
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-96.0
- 20
-110.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-104.0
- 20
-110.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-96.0
- 20
-130.0
- 30
-0.0
- 40
-1.6
-  0
-CIRCLE
-  8
-M3_HOLES
- 10
-104.0
- 20
-130.0
- 30
-0.0
- 40
-1.6
-
-  0
-COMMAND
-  1
-M4 HOLES - TR8x8 Lead Screw Nut (16mm square pattern, center at 60,80)
-
-  0
-CIRCLE
-  8
-M4_HOLES
- 10
-52.0
- 20
-72.0
- 30
-0.0
- 40
-2.15
-  0
-CIRCLE
-  8
-M4_HOLES
- 10
-68.0
- 20
-72.0
- 30
-0.0
- 40
-2.15
-  0
-CIRCLE
-  8
-M4_HOLES
- 10
-52.0
- 20
-88.0
- 30
-0.0
- 40
-2.15
-  0
-CIRCLE
-  8
-M4_HOLES
- 10
-68.0
- 20
-88.0
- 30
-0.0
- 40
-2.15
-
-  0
-COMMAND
-  1
-M5 HOLES - Router Adapter 1 Upper (center at 60,40)
-
-  0
-CIRCLE
-  8
-M5_HOLES
- 10
-30.0
+20.0
  20
 20.0
  30
 0.0
  40
-2.65
+2.5
+
+  0
+COMMENT
+  1
+--- V-WHEEL ECCENTRIC (Dia 7.8mm radius 3.9) ---
+
   0
 CIRCLE
   8
-M5_HOLES
+VWHEEL_ECCENTRIC
  10
-90.0
+62.5
+ 20
+115.0
+ 30
+0.0
+ 40
+3.9
+  0
+CIRCLE
+  8
+VWHEEL_ECCENTRIC
+ 10
+62.5
+ 20
+10.0
+ 30
+0.0
+ 40
+3.9
+  0
+CIRCLE
+  8
+VWHEEL_ECCENTRIC
+ 10
+115.0
+ 20
+62.5
+ 30
+0.0
+ 40
+3.9
+
+  0
+COMMENT
+  1
+--- MGN9H M3 HOLES - Rail 1 Left (X-ctr=25) Carriage A Top (Y-ctr=95) ---
+
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+21.0
+ 20
+85.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+29.0
+ 20
+85.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+21.0
+ 20
+105.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+29.0
+ 20
+105.0
+ 30
+0.0
+ 40
+1.6
+
+  0
+COMMENT
+  1
+--- MGN9H M3 HOLES - Rail 1 Left (X-ctr=25) Carriage B Bottom (Y-ctr=30) ---
+
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+21.0
  20
 20.0
  30
 0.0
  40
-2.65
+1.6
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-30.0
+29.0
  20
-60.0
+20.0
  30
 0.0
  40
-2.65
+1.6
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-90.0
+21.0
  20
-60.0
+40.0
  30
 0.0
  40
-2.65
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+29.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.6
 
   0
-COMMAND
+COMMENT
   1
-M5 HOLES - Router Adapter 2 Lower (center at 60,120)
+--- MGN9H M3 HOLES - Rail 2 Right (X-ctr=100) Carriage A Top (Y-ctr=95) ---
 
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-30.0
+96.0
  20
-100.0
+85.0
  30
 0.0
  40
-2.65
+1.6
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-90.0
+104.0
  20
-100.0
+85.0
  30
 0.0
  40
-2.65
+1.6
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-30.0
+96.0
  20
-140.0
+105.0
  30
 0.0
  40
-2.65
+1.6
   0
 CIRCLE
   8
-M5_HOLES
+M3_HOLES
  10
-90.0
+104.0
  20
-140.0
+105.0
  30
 0.0
  40
-2.65
+1.6
 
   0
-COMMAND
+COMMENT
   1
-LEAD SCREW CLEARANCE HOLE - Dia 9.0mm at center (60,80)
+--- MGN9H M3 HOLES - Rail 2 Right (X-ctr=100) Carriage B Bottom (Y-ctr=30) ---
+
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+96.0
+ 20
+20.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+104.0
+ 20
+20.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+96.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.6
+  0
+CIRCLE
+  8
+M3_HOLES
+ 10
+104.0
+ 20
+40.0
+ 30
+0.0
+ 40
+1.6
+
+  0
+COMMENT
+  1
+--- TR8x8 NUT BLOCK M4 HOLES (20mm sq pattern centred at 62.5,62.5) ---
+
+  0
+CIRCLE
+  8
+M4_HOLES
+ 10
+52.5
+ 20
+52.5
+ 30
+0.0
+ 40
+2.15
+  0
+CIRCLE
+  8
+M4_HOLES
+ 10
+72.5
+ 20
+52.5
+ 30
+0.0
+ 40
+2.15
+  0
+CIRCLE
+  8
+M4_HOLES
+ 10
+52.5
+ 20
+72.5
+ 30
+0.0
+ 40
+2.15
+  0
+CIRCLE
+  8
+M4_HOLES
+ 10
+72.5
+ 20
+72.5
+ 30
+0.0
+ 40
+2.15
+
+  0
+COMMENT
+  1
+--- Makita ADAPTER 1 UPPER M5 HOLES (Y-ctr=95) ---
+
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+32.5
+ 20
+80.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+92.5
+ 20
+80.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+32.5
+ 20
+110.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+92.5
+ 20
+110.0
+ 30
+0.0
+ 40
+2.65
+
+  0
+COMMENT
+  1
+--- Makita ADAPTER 2 LOWER M5 HOLES (Y-ctr=30) ---
+
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+32.5
+ 20
+15.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+92.5
+ 20
+15.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+32.5
+ 20
+45.0
+ 30
+0.0
+ 40
+2.65
+  0
+CIRCLE
+  8
+M5_HOLES
+ 10
+92.5
+ 20
+45.0
+ 30
+0.0
+ 40
+2.65
+
+  0
+COMMENT
+  1
+--- LEAD SCREW CLEARANCE Dia 9.0mm centre (62.5, 62.5) ---
 
   0
 CIRCLE
   8
 LEADSCREW
+ 10
+62.5
+ 20
+62.5
+ 30
+0.0
+ 40
+4.5
+
+  0
+COMMENT
+  1
+--- M5 UTILITY GRID 20mm spacing (Dia 5.0mm radius 2.5) ---
+
+  0
+CIRCLE
+  8
+MGRID
+ 10
+40.0
+ 20
+20.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+60.0
+ 20
+20.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+80.0
+ 20
+20.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+40.0
+ 20
+40.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+60.0
+ 20
+40.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+80.0
+ 20
+40.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+40.0
+ 20
+60.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+80.0
+ 20
+60.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+40.0
+ 20
+80.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
  10
 60.0
  20
@@ -589,7 +868,55 @@ LEADSCREW
  30
 0.0
  40
-4.5
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+80.0
+ 20
+80.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+40.0
+ 20
+100.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+60.0
+ 20
+100.0
+ 30
+0.0
+ 40
+2.5
+  0
+CIRCLE
+  8
+MGRID
+ 10
+80.0
+ 20
+100.0
+ 30
+0.0
+ 40
+2.5
 
   0
 ENDSEC
